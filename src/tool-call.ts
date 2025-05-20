@@ -1,9 +1,25 @@
-export default async function toolCall(paramOne: string, paramTwo: string, envVar: string): Promise<string> {
-    let result = '';
+export default async function toolCall(query: string, gitbookApiKey: string, gitbookSpaceId: string): Promise<string> {
+    try {
+        const apiUrl = `https://api.gitbook.com/v1/spaces/${gitbookSpaceId}/search?query=${query}`;
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${gitbookApiKey}`
+            },
+        });
 
-    console.log(`Received event with the following parameters: ${paramOne}, ${paramTwo} and the following env var: ${envVar}.`)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
 
-    result = paramOne + paramTwo;
+        const data = await response.json();
 
-    return result;
+        console.log(data);
+
+        return JSON.stringify(data);
+    } catch (error) {
+        console.error('Error making API request:', error);
+        throw error;
+    }
 }

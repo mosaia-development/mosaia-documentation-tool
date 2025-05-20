@@ -1,18 +1,18 @@
 {
-    "name": "Mosaia Gitbook Search",
-    "description": "Search for a query in the Mosaia Gitbook",
+    "name": "mosaia-documentation",
+    "description": "Search the Mosaia documentation",
     "schema": {
         "type": "function",
         "function": {
-            "name": "Mosaia Gitbook Search",
-            "description": "Search for a query in the Mosaia Gitbook",
+            "name": "mosaia-documentation",
+            "description": "Search the Mosaia documentation",
             "strict": true,
             "parameters": {
                 "type": "object",
                 "properties": {
                     "query": {
                         "type": "string",
-                        "description": "The query to search for in the Mosaia Gitbook"
+                        "description": "The query to search the Mosaia documentation for"
                     }
                 },
                 "required": [

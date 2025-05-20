@@ -12,16 +12,16 @@ type ParsedEvent = {
 export async function handler(event: RawEvent) {
     const {
         args: {
-            EXAMPLE_PARAM_ONE,
-            EXAMPLE_PARAM_TWO,
+            query
         },
         secrets: {
-            ENV_VAR_ONE
+            GITBOOK_API_KEY,
+            GITBOOK_SPACE_ID
         }
     } = JSON.parse(event.body) as ParsedEvent;
 
     try {
-        const result = await toolCall(EXAMPLE_PARAM_ONE, EXAMPLE_PARAM_TWO, ENV_VAR_ONE)
+        const result = await toolCall(query, GITBOOK_API_KEY, GITBOOK_SPACE_ID);
 
         return {
             statusCode: 200,
