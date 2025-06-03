@@ -1,5 +1,5 @@
 # Mosaia Tool Starter
-A demo implementation of a Mosaia Tool.
+A demo implementation of a Mosaia Tool
 
 ## Getting Started
 1. Register for an account on mosaia.ai
