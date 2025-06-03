@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000?EXAMPLE_PARAM_ONE=foo&EXAMPLE_PARAM_TWO=bar",
+					"raw": "http://localhost:3000?query=tool",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -20,12 +20,8 @@
 					"port": "3000",
 					"query": [
 						{
-							"key": "EXAMPLE_PARAM_ONE",
-							"value": "foo"
-						},
-						{
-							"key": "EXAMPLE_PARAM_TWO",
-							"value": "bar"
+							"key": "query",
+							"value": "tool"
 						}
 					]
 				}

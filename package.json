@@ -7,10 +7,10 @@
   "scripts": {
     "build": "tsc",
     "start:dev": "npm run build && node bin/dev.js",
-    "test:request": "curl -XGET \"http://localhost:3000?EXAMPLE_PARAM_ONE=foo&EXAMPLE_PARAM_TWO=bar\""
+    "test:request": "curl -XGET \"http://localhost:3000?query=tool\""
   },
   "devDependencies": {
-    "@types/node": "^20.12.11",
+    "@types/node": "^20.17.47",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "ts-node": "^10.9.2",

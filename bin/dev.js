@@ -6,24 +6,29 @@ dotenv.config();
 
 const app = express();
 
-const { ENV_VAR_ONE, PORT } = process.env;
+const { GITBOOK_API_KEY, GITBOOK_SPACE_ID, PORT } = process.env;
 
-if(ENV_VAR_ONE === undefined) {
-    console.log('`ENV_VAR_ONE` not set. Copy .env.example to .env first.');
+if(GITBOOK_API_KEY === undefined) {
+    console.log('`GITBOOK_API_KEY` not set. Copy .env.example to .env first.');
+    process.exit(1);
+}
+
+if(GITBOOK_SPACE_ID === undefined) {
+    console.log('`GITBOOK_SPACE_ID` not set. Copy .env.example to .env first.');
     process.exit(1);
 }
 
 app.get('/', async (req, res) => {
-    const { EXAMPLE_PARAM_ONE, EXAMPLE_PARAM_TWO } = req.query;
+    const { query } = req.query;
 
     const event = {
         body: JSON.stringify({
             args: {
-                EXAMPLE_PARAM_ONE,
-                EXAMPLE_PARAM_TWO
+                query
             },
             secrets: {
-                ENV_VAR_ONE
+                GITBOOK_API_KEY,
+                GITBOOK_SPACE_ID
             }
         })
     }
